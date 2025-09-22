@@ -1,0 +1,47 @@
+{
+  "name": "lista-compras-microservices",
+  "version": "1.0.0",
+  "description": "Sistema de microsserviços para listas de compras - PUC Minas",
+  "main": "client-demo.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"npm run start:user\" \"npm run start:item\" \"npm run start:list\" \"npm run start:gateway\"",
+    "start:user": "cd services/user-service && npm start",
+    "start:item": "cd services/item-service && npm start",
+    "start:list": "cd services/list-service && npm start",
+    "start:gateway": "cd api-gateway && npm start",
+    "demo": "node client-demo.js",
+    "install:all": "npm install && cd services/user-service && npm install && cd ../item-service && npm install && cd ../list-service && npm install && cd ../../api-gateway && npm install",
+    "clean": "rm -rf node_modules services/*/node_modules api-gateway/node_modules"
+  },
+  "keywords": [
+    "microservices",
+    "typescript",
+    "nosql",
+    "puc-minas"
+  ],
+  "author": "Aluno PUC Minas",
+  "license": "MIT",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.6.0",
+    "bcryptjs": "^3.0.2",
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
